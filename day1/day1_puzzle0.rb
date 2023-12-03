@@ -25,7 +25,7 @@ end
 
 process = Day1Puzzle0.new
 
-File.open('day1/example_input0').each do |line|
+File.open('day1/example_input').each do |line|
   puts process.parse_line(line: line.strip)
 end
 

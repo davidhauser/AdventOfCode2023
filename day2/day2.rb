@@ -13,6 +13,16 @@ class Game
     end
   end
 
+  def power
+    maxes = {red: 0, green: 0, blue: 0}
+    rounds.each do |round|
+      maxes[:red] = round.red if round.red > maxes[:red]
+      maxes[:green] = round.green if round.green > maxes[:green]
+      maxes[:blue] = round.blue if round.blue > maxes[:blue]
+    end
+    maxes[:red] * maxes[:green] * maxes[:blue]
+  end
+
   def to_string
     result = rounds[0].to_string
     rounds[1..].each do |element|
@@ -72,5 +82,11 @@ sum = 0
 File.open('day2/real_input').each do |line|
   id = line[(line.index(' ') + 1)...line.index(':')]
   sum += id.to_i if Game.from_string(line: line).validate
+end
+puts sum
+
+sum = 0
+File.open('day2/real_input').each do |line|
+  sum += Game.from_string(line: line).power
 end
 puts sum
