@@ -30,15 +30,17 @@ end
 
 process = Day1Puzzle1.new
 
-# result = 0
-# test_number = 1
-# File.open('day1/example_input1').each do |line|
-#   temp = process.parse_line(line: line.strip).to_i
-#   puts "#{test_number}: #{temp}"
-#   result += temp
-#   test_number += 1
-# end
-# puts result
+result = 0
+test_number = 1
+File.open('day1/example_input1').each do |line|
+  temp = process.parse_line(line: line.strip).to_i
+  puts "#{test_number}: #{temp}"
+  result += temp
+  test_number += 1
+end
+puts result
+
+puts
 
 result = 0
 test_number = 1
